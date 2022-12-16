@@ -1,60 +1,35 @@
 package application;
 
+import entities.Product;
+
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.Product;
-
 public class Program {
+  public static void main(String[] args) {
 
-    public static void main(String[] args) {
+    Locale.setDefault(Locale.US);
+    Scanner sc = new Scanner(System.in);
 
-        Locale.setDefault(Locale.US);
-        Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    Product[] vect = new Product[n];
 
-        System.out.println("Enter product data: ");
-        System.out.println("Product name: ");
-        String name = sc.nextLine();
-        System.out.println("Product price: ");
-        double price = sc.nextDouble();
-        System.out.println("Product quantity: ");
-        int quantity = sc.nextInt();
+    for (int i = 0; i < n; i++) {
+      sc.nextLine();
+      String name = sc.nextLine();
 
-        Product product = new Product(name, price, quantity);
+      double price = sc.nextDouble();
 
-        double total = product.totalValueInStrock();
-
-        System.out.printf(
-                "Product data: %s, $ %.2f, %d units, Total: %.2f %n",
-                product.getName(), product.getPrice(),
-                product.getQuantity(), total);
-
-        System.out.println(
-                "Enter the number of products to be added in stock: ");
-        int qtdAdded = sc.nextInt();
-
-
-        System.out.printf("Quantity added to stock %d %n",
-                qtdAdded);
-
-        double updatedTotal = product.totalValueInStrock();
-
-        System.out.printf(
-                "%s, $ %.2f, %d units, Total: $ %.2f %n",
-                product.getName(), product.getPrice(),
-                product.getQuantity(), updatedTotal);
-
-        System.out.println(
-                "Enter the number of products to be removed from stock: ");
-        int qtdeToRemove = sc.nextInt();
-        product.removeproduct(qtdeToRemove);
-
-        double updatedTotalAfterRemove = product
-                .totalValueInStrock();
-
-        System.out.println(product.toString());
-
-        sc.close();
+      vect[i] = new Product(name, price);
     }
 
+    double sum = 0.0;
+    for (int i = 0; i < vect.length; i++) {
+      sum += vect[i].getPrice();
+    }
+
+    double avg = sum / n;
+
+    System.out.printf("Average price: $ %.2f%n", avg);
+  }
 }
