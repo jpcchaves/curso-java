@@ -11,7 +11,6 @@ public class OrderItem {
   }
 
   public OrderItem(Integer quantity, Double price, Product2 product) {
-    super();
     this.quantity = quantity;
     this.price = price;
     this.product = product;
@@ -41,18 +40,18 @@ public class OrderItem {
     this.product = product;
   }
 
-  public double subTotal() {
+  public Double subTotal() {
     return price * quantity;
   }
 
   @Override
   public String toString() {
-    return getProduct().getName()
-            + ", $"
+    String sb = "Item: quantity: "
+            + quantity + ", price: " + "$"
             + String.format("%.2f", price)
-            + ", Quantity: "
-            + quantity
-            + ", Subtotal: $"
-            + String.format("%.2f", subTotal());
+            + ", product: " + product.getName()
+            + ", Subtotal: " + "$" + String.format(
+            "%.2f", subTotal());
+    return sb;
   }
 }

@@ -8,9 +8,8 @@ import java.util.Date;
 import java.util.List;
 
 public class Order2 {
-
-  private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
   private final List<OrderItem> items = new ArrayList<OrderItem>();
+  SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
   private Date moment;
   private OrderStatus status;
   private Client client;
@@ -19,7 +18,6 @@ public class Order2 {
   }
 
   public Order2(Date moment, OrderStatus status, Client client) {
-    super();
     this.moment = moment;
     this.status = status;
     this.client = client;
@@ -57,12 +55,17 @@ public class Order2 {
     items.remove(item);
   }
 
-  public double total() {
-    double sum = 0.0;
-    for (OrderItem it : items) {
-      sum += it.subTotal();
+  public Double total() {
+    Double sum = 0.0;
+
+    for (OrderItem item : items) {
+
+      sum += item.subTotal();
+
     }
+
     return sum;
+
   }
 
   @Override
@@ -82,4 +85,5 @@ public class Order2 {
     sb.append(String.format("%.2f", total()));
     return sb.toString();
   }
+
 }
