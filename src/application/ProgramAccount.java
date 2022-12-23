@@ -32,5 +32,18 @@ public class ProgramAccount {
       System.out.println("Update");
     }
 
+    // Override
+    Account acc6 = new Account(1001, "Alex", 1000.0);
+    acc6.withDraw(200.0);
+    System.out.println(acc6.getBalance());
+
+    Account acc7 = new SavingsAccount(1002, "Zezin", 1000.0, 0.001);
+    acc7.withDraw(200.0);
+    System.out.println(acc7.getBalance());
+
+    Account acc8 = new BusinessAccount(1003, "Zezin", 1000.0, 500.0);
+    acc8.withDraw(200.0);
+    System.out.println(acc8.getBalance());
+
   }
 }
