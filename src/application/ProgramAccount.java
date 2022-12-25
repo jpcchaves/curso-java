@@ -1,49 +1,44 @@
 package application;
 
 import entities.Account;
-import entities.BusinessAccount;
-import entities.SavingsAccount;
+import entities.exceptions.BusinessException;
+
+import java.util.Locale;
+import java.util.Scanner;
 
 public class ProgramAccount {
   public static void main(String[] args) {
+    Locale.setDefault(Locale.US);
+    Scanner sc = new Scanner(System.in);
+
+    System.out.println("Informe os dados da conta: ");
+    System.out.print("Número: ");
+    Integer number = sc.nextInt();
+    System.out.print("Titular: ");
+    sc.nextLine();
+    String holder = sc.nextLine();
 
 
-    Account acc = new Account(1001, "João", 0.0);
-    BusinessAccount bacc = new BusinessAccount(1002, "João 2", 0.0, 500.0);
+    System.out.print("Saldo inicial: ");
+    double balance = sc.nextDouble();
 
+    System.out.print("Limite de saque: ");
+    Double withdrawLimit = sc.nextDouble();
 
-    //  Upcasting - atribuir uma subclasse e atribuir para uma variável da super classe!
-    Account acc1 = bacc;
-    Account acc2 = new BusinessAccount(1003, "Jp", 0.0, 200.0);
-    Account acc3 = new SavingsAccount(1004, "Anna", 0.0, 0.01);
+    Account acc = new Account(number, holder, balance, withdrawLimit);
 
-    // Downcasting - é o processo inverso de upcasting
-    BusinessAccount acc4 = (BusinessAccount) acc2;
-    acc4.loan(100.0);
+    System.out.println();
+    System.out.println("Informe uma quantia para sacar: ");
+    Double amount = sc.nextDouble();
 
-    if (acc3 instanceof BusinessAccount acc5) {
-      System.out.println("Emprestimo permitido");
-    } else {
-      System.out.println("acc3 não é uma instancia de BusinessAccount");
+    try {
+      acc.withDraw(amount);
+      System.out.printf("Novo saldo: %.2f%n", acc.getBalance());
+    } catch (BusinessException e) {
+      System.out.println(e.getMessage());
     }
 
-    if (acc3 instanceof SavingsAccount acc5) {
-      acc5.updateBalance();
-      System.out.println("Update");
-    }
 
-    // Override
-    Account acc6 = new Account(1001, "Alex", 1000.0);
-    acc6.withDraw(200.0);
-    System.out.println(acc6.getBalance());
-
-    Account acc7 = new SavingsAccount(1002, "Zezin", 1000.0, 0.001);
-    acc7.withDraw(200.0);
-    System.out.println(acc7.getBalance());
-
-    Account acc8 = new BusinessAccount(1003, "Zezin", 1000.0, 500.0);
-    acc8.withDraw(200.0);
-    System.out.println(acc8.getBalance());
-
+    sc.close();
   }
 }
