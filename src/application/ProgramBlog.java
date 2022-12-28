@@ -1,7 +1,7 @@
 package application;
 
-import entities.Comment;
-import entities.Post;
+import model.entities.Comment;
+import model.entities.Post;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

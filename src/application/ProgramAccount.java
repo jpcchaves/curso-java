@@ -1,7 +1,7 @@
 package application;
 
-import entities.Account;
-import entities.exceptions.BusinessException;
+import model.entities.Account;
+import model.exceptions.BusinessException;
 
 import java.util.Locale;
 import java.util.Scanner;

@@ -1,9 +1,9 @@
 package application;
 
-import entities.Department;
-import entities.HourContract;
-import entities.Worker;
-import entities.enums.WorkerLevel;
+import model.entities.Department;
+import model.entities.HourContract;
+import model.entities.Worker;
+import model.enums.WorkerLevel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

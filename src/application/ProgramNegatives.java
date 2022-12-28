@@ -1,6 +1,6 @@
 package application;
 
-import entities.Negative;
+import model.entities.Negative;
 
 import java.util.Locale;
 import java.util.Scanner;

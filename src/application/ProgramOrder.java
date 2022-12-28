@@ -1,10 +1,10 @@
 package application;
 
-import entities.Client;
-import entities.Order2;
-import entities.OrderItem;
-import entities.Product2;
-import entities.enums.OrderStatus;
+import model.entities.Client;
+import model.entities.Order2;
+import model.entities.OrderItem;
+import model.entities.Product2;
+import model.enums.OrderStatus;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

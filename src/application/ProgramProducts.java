@@ -1,8 +1,8 @@
 package application;
 
-import entities.ImportedProduct;
-import entities.Product162;
-import entities.UsedProduct;
+import model.entities.ImportedProduct;
+import model.entities.Product162;
+import model.entities.UsedProduct;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

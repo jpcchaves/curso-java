@@ -1,6 +1,6 @@
 package application;
 
-import entities.Rent;
+import model.entities.Rent;
 
 import java.util.Locale;
 import java.util.Scanner;

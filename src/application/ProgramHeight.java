@@ -1,6 +1,6 @@
 package application;
 
-import entities.Person;
+import model.entities.Person;
 
 import java.util.Locale;
 import java.util.Scanner;

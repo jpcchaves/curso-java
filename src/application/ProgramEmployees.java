@@ -1,6 +1,6 @@
 package application;
 
-import entities.Employee;
+import model.entities.Employee;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +59,6 @@ public class ProgramEmployees {
       System.out.println("Salary: " + x.getSalary());
 
     }
-    
+
   }
 }
